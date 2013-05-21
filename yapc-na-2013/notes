@@ -1,0 +1,35 @@
+rt.cpan.org automatically provides bug tracking for all CPAN distributions.
+This talk aims to show CPAN authors (that's you!) ways to get the most out of
+this ready-made tool for managing bugs in your distributions. We'll cover saved
+searches, dashboards, bug feeds, command line access, the REST API,
+distribution notes, and more. Even if you're not (yet!) a CPAN author, you'll
+stand to learn some tricks for using rt.cpan.org as a copious bug reporter.
+
+I work for Best Practical Solutions, the company behind RT and the maintainers
+of rt.cpan.org on the perl.org network. I plan to cover:
+
+• Submitting bugs 
+• Linking between bugs 
+• Public guest interface vs. PAUSE 
+• Searching and saved searches 
+• Dashboards 
+• Notifications and feeds 
+• Command-line access (bin/rt) 
+• REST API access 
+• Regular exports 
+• Distribution notes 
+• How to tell the world your bugtracker is somewhere else, what that means for rt.cpan.org, and why. 
+• Integration with Github/webhooks (if complete in time for YAPC!) 
+• Other topics that may arise between now and YAPC or in a Q&A session at the end.
+
+
+* how to participate?
+* curl incant for bin/rt
+    or separate dist
+* making internal queue visible
+* actions by email
+* adjust default home page
+    notify those who've customized that there's a new version available?
+    (see if they've actually customized, or just reset to default at a point in time?)
+
+* stats as an introduction
