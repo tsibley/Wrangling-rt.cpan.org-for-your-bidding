@@ -96,5 +96,81 @@ window.onload = function() {
     go(cur);
 };
 </script></head><body>
-<div>rt.cpan.org</div>
-<div><em>TSIBLEY</em>@cpan.org <br> @<em>trs</em></div>
+
+<div> RT for CPAN </div>
+<div> rt.cpan.org </div>
+<div> RT for Perl <br> rt.perl.org </div>
+<div> Request Tracker </div>
+<div><img src="images/at-a-glance.png"></div>
+
+<div class="TODO"> Quickly, what is RT </div>
+<div class="TODO"> STATS </div>
+<!-- TODO: open a bunch of tabs for demos between slides? -->
+
+<!-- Submitting bugs -->
+<div> <u>bug-YAPC-NA@rt.cpan.org</u> </div>
+<div> <u>[rt.cpan.org #NNNNN]</u> </div>
+<div> https://rt.cpan.org </div>
+
+<div> PAUSE authors </div>
+<div><img src="images/pause.png"></div>
+<div> Public access, <br> Bitcard, &amp; <br> OpenID </div>
+<div><img src="images/public.png"></div>
+
+<!-- Linking between tickets -->
+<div> Links between tickets </div>
+<div> Depends On     <br> Refers To      <br> Child </div>
+<div> Depended On By <br> Referred To By <br> Parent </div>
+<!-- <div> <u>Parent / Child</u> <br> <u>MemberOf / Member</u> </div> -->
+
+
+<!-- Searching and saved searches -->
+<!-- Formats -->
+<!-- Ordering -->
+<!-- Dashboards  -->
+<!-- Notifications and feeds  -->
+<!-- Command-line access (bin/rt)  -->
+<!-- REST API access  -->
+<!-- Distribution notes  -->
+<!-- How to tell the world your bugtracker is somewhere else, what that means for rt.cpan.org, and why.  -->
+<!-- Integration with Github/webhooks (if complete in time for YAPC!)  -->
+<!-- Other topics that may arise between now and YAPC or in a Q&amp;A session at the end. -->
+<!-- how to participate? -->
+<!-- curl incant for bin/rt (or separate dist?) -->
+<!-- making internal queue visible -->
+<!-- actions by email -->
+
+<!--
+* adjust default home page
+    notify those who've customized that there's a new version available?
+    (see if they've actually customized, or just reset to default at a point in time?)
+-->
+
+<!-- Regular exports -->
+<div> Bug summary data <a href="https://rt.cpan.org/Public/bugs-per-dist.tsv">rt.cpan.org/Public/bugs-per-dist.tsv</a> </div>
+<div><em>distribution name</em>
+new
+open
+stalled
+patched
+resolved
+rejected
+<em>active</em>
+<em>inactive</em></div>
+<!-- TODO: JSON export of summary data -->
+
+<div> Analyze your bugs <a href="https://rt.cpan.org/NoAuth/cpan/rtcpan.sqlite">rt.cpan.org/NoAuth/cpan/rtcpan.sqlite</a></div>
+<div><pre>sqlite&gt; .s
+CREATE TABLE ticket (
+    id INTEGER NOT NULL PRIMARY KEY,
+    distribution TEXT NOT NULL,
+    subject TEXT NOT NULL,
+    status TEXT NOT NULL,
+    severity TEXT,
+    created TEXT NOT NULL,
+    updated TEXT NOT NULL
+);</pre></div>
+<!-- TODO: include "broken in/fixed in" in export? how to do multi-value? -->
+
+<div> <em>TSIBLEY</em>@cpan.org <br> @<em>trs</em> </div>
+<div> </div>
