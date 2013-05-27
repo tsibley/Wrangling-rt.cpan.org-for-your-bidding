@@ -46,12 +46,21 @@ div {
 div.TODO {
   color: red;
 }
+
+#where {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    letter-spacing: 0;
+    font-size: 1em;
+}
 </style><script type='text/javascript'>
 window.onload = function() {
     var s = document.getElementsByTagName('div'), cur = 0, p;
     if (!s) return;
     function preview(n) {
-        if (window.opener || window.name === "preview")
+        if (window.location.search.match(/nopreview/))
             return;
         if (p == null || p.closed) {
             p = window.open(document.location, "preview", "width=600,height=400,top=0,left=0,menubar=no,location=no,resizable=no,scrollbars=no,status=no");
@@ -83,7 +92,17 @@ window.onload = function() {
         e.style.marginTop = ((window.innerHeight - e.offsetHeight) / 2) + 'px';
         if (window.location.hash !== n) window.location.hash = n;
         document.title = e.textContent || e.innerText;
-        preview(n + 1);
+
+        if (window.name === "preview") {
+            var where = document.getElementById("where") || document.createElement("span");
+            if (where.id !== "where") {
+                where.id = "where";
+                document.body.appendChild(where);
+            }
+            where.innerText = (n + 1) + "/" + s.length;
+        }
+        else
+            preview(n + 1);
     }
     document.onclick = function() {
         go(++cur % (s.length));
