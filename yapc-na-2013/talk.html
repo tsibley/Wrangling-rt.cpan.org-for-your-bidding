@@ -48,8 +48,19 @@ div.TODO {
 }
 </style><script type='text/javascript'>
 window.onload = function() {
-    var s = document.getElementsByTagName('div'), cur = 0;
+    var s = document.getElementsByTagName('div'), cur = 0, p;
     if (!s) return;
+    function preview(n) {
+        if (window.opener || window.name === "preview")
+            return;
+        if (p == null || p.closed) {
+            p = window.open(document.location, "preview", "width=600,height=400,top=0,left=0,menubar=no,location=no,resizable=no,scrollbars=no,status=no");
+            if (p != null)
+                setTimeout(preview, 50, n); // Workaround for Chrome timing bug
+        }
+        else
+            p.location.hash = n > (s.length - 1) ? 0 : n;
+    }
     function go(n) {
         cur = n;
         var i = 1e3, e = s[n];
@@ -72,6 +83,7 @@ window.onload = function() {
         e.style.marginTop = ((window.innerHeight - e.offsetHeight) / 2) + 'px';
         if (window.location.hash !== n) window.location.hash = n;
         document.title = e.textContent || e.innerText;
+        preview(n + 1);
     }
     document.onclick = function() {
         go(++cur % (s.length));
