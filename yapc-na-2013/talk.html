@@ -112,6 +112,7 @@ window.onload = function() {
         (e.which === 37) && go(Math.max(0, --cur));
         (e.which === 36
       || e.which === 48) && go(0);
+        (e.which === 35) && go(s.length - 1);
     };
     function parse_hash() {
         return Math.max(Math.min(
