@@ -133,28 +133,49 @@ window.onload = function() {
 <div> rt.cpan.org </div>
 <div> RT for Perl <br> rt.perl.org </div>
 <div> Request Tracker </div>
-<div><img src="images/at-a-glance.png"></div>
-
-<div class="TODO"> Quickly, what is RT </div>
+<div><img src='images/at-a-glance.png'></div>
 
 <!-- Quick stats -->
 <div>31,200 queues <br> 10,600 w/ bugs </div>
 <div><u>22,400 active bugs</u><br> <u>38,700 inactive bugs</u></div>
 
+<div> <u>Distribution → Queue</u> </div>
+
+<div> What is a queue? </div>
+<div> Basic organizational unit </div>
+<div> Access control </div>
+<div> <u>Available field values</u> <br> <u>(Fixed in, Broken In)</u> </div>
+<div> People <br> (CPAN authors) </div>
+
+<div> What is a distribution? </div>
+<div> <u>TSIBLEY/App-cpanchanges-20130523.0.tar.gz</u> </div>
+<div> <u>TSIBLEY/<em>App-cpanchanges</em>-20130523.0.tar.gz</u> </div>
+<div> According to rt.cpan.org </div>
+<div> PAUSE lacks concept </div>
+<div> (For now!  Talk to RJBS or DAGOLDEN) </div>
+<div> ~2 hour lag </div>
+
 <!-- TODO: open a bunch of tabs for demos between slides? -->
-
-<!-- How do I get a queue? -->
-
 
 <!-- Submitting bugs -->
 <div> <u>bug-YAPC-NA@rt.cpan.org</u> </div>
+<div> <u>bug-<em>YAPC-NA</em>@rt.cpan.org</u> </div>
 <div> <u>[rt.cpan.org #NNNNN]</u> </div>
+<div> <u>[rt.cpan.org #<em>NNNNN</em>]</u> </div>
 <div> https://rt.cpan.org </div>
 
 <div> PAUSE authors </div>
-<div><img src="images/pause.png"></div>
+<div><img src='images/pause.png'></div>
+<!-- TODO: more screenshots of each here -->
 <div> Public access, <br> Bitcard, &amp; <br> OpenID </div>
-<div><img src="images/public.png"></div>
+<div><img src='images/public.png'></div>
+
+<div> Maintainers </div>
+<div> Primary maint + Co-maints </div>
+<div><img src='images/maintainers.png'></div>
+<div> you! </div>
+<div> Own, resolve, delete tickets, modify queue options </div>
+<div> AdminCcs = Maintainers </div>
 
 <!-- Linking between tickets -->
 <div> Links between tickets </div>
@@ -162,22 +183,88 @@ window.onload = function() {
 <div> Depended On By <br> Referred To By <br> Parent </div>
 <!-- <div> <u>Parent / Child</u> <br> <u>MemberOf / Member</u> </div> -->
 
+<!-- Adding people (or yourself) as Ccs, Requestors -->
 
 <!-- Searching and saved searches -->
+<!-- Powerful simple searches -->
+<!-- Adding it to your browser -->
 <!-- Formats -->
 <!-- Ordering -->
 <!-- Dashboards  -->
 <!-- Notifications and feeds  -->
 <!-- Command-line access (bin/rt)  -->
-<!-- REST API access  -->
-<!-- Distribution notes  -->
+<!-- REST API access -->
+
+<!-- The "Manage" tab -->
+<div> “Manage” </div>
+<div><img src="images/manage.png"></div>
+
+<div> Notify additional addresses </div>
+<div> Your mailing list </div>
+<div> Another bug tracker </div>
+<div> (Avoid mail loops) </div>
+
+<div> Custom subject tag </div>
+<div> <u>[rt.cpan.org #12345]</u> </div>
+<div> turns into </div>
+<div> <u>[rt.cpan.org <em>Moose</em> #12345]</u> </div>
+<div> Be reasonable </div>
+
+<div> Distribution notes </div>
+<div> Bug lists &amp; Report a bug </div>
+<div><img src="images/distronotes.png"></div>
+<div><img src="images/longnotes.png"></div>
+<div><img src="images/pleasebeeating.png"></div>
+<div><img src="images/bugtrackernote.png"></div>
+
 <!-- How to tell the world your bugtracker is somewhere else, what that means for rt.cpan.org, and why.  -->
+<div> “I don't use RT” </div>
+<div> Tell the world! </div>
+<div> <u>META.{json,yaml}</u> </div>
+<div> (CPAN::Meta::Spec) </div>
+<div> ExtUtils::MakeMaker </div>
+<div><pre>META_MERGE =&gt; {
+    "meta-spec" =&gt; { version =&gt; 2 },
+    resources   =&gt; {
+        bugtracker =&gt; {
+            web     =&gt; "…",
+            mailto  =&gt; "…",
+        },
+    },
+}</pre></div>
+<div> Module::Build::Functions </div>
+<div><pre>bugtracker "…";</pre></div>
+<div> Module::Install </div>
+<div><pre>resources bugtracker =&gt; "…";</pre></div>
+<div> Dist::Zilla </div>
+<div><pre>bugtracker.web    = …
+bugtracker.mailto = …</pre></div>
+<div> metacpan.org </div>
+<div> search.cpan.org </div>
+<div> rt.cpan.org </div>
+<div><img src='images/preferred-bugtracker.png'></div>
+<div><img src='images/preferred-bugtracker-ticket.png'></div>
+<div><img src='images/preferred-bugtracker-report.png'></div>
+<div> Thanks to <em>Ian Norton</em> &amp; <em>Shadowcat Systems</em> </div>
+<div> Queue still exists‽ </div>
+<div> Yes. </div>
+<div> Advisory only </div>
+<div> rt.cpan.org is for </div>
+<div> authors </div>
+<div> <i>and</i> </div>
+<div> users </div>
+<div> Abandoned modules </div>
+<div> Community patches </div>
+<div> Past bug history </div>
+<div> “Someone else has this problem, I'm not crazy.” </div>
+
 <!-- Integration with Github/webhooks (if complete in time for YAPC!)  -->
 <!-- Other topics that may arise between now and YAPC or in a Q&amp;A session at the end. -->
 <!-- how to participate? -->
 <!-- curl incant for bin/rt (or separate dist?) -->
+<div><pre>cpanm RT::Client::CLI</pre></div>
 <!-- making internal queue visible -->
-<!-- actions by email -->
+<!-- actions by email: $UnsafeEmailActions = 1 and correspond-resolve addresses -->
 
 <!--
 * adjust default home page
@@ -186,7 +273,8 @@ window.onload = function() {
 -->
 
 <!-- Regular exports -->
-<div> Bug summary data <a href="https://rt.cpan.org/Public/bugs-per-dist.tsv">rt.cpan.org/Public/bugs-per-dist.tsv</a> </div>
+<div> Bug summary data </div>
+<div> TSV <a href="https://rt.cpan.org/Public/bugs-per-dist.tsv">rt.cpan.org/Public/bugs-per-dist.tsv</a> </div>
 <div><em>distribution name</em>
 new
 open
@@ -196,7 +284,25 @@ resolved
 rejected
 <em>active</em>
 <em>inactive</em></div>
-<!-- TODO: JSON export of summary data -->
+
+<!-- TODO: BLOG -->
+<div> JSON <a href="https://rt.cpan.org/Public/bugs-per-dist.json">rt.cpan.org/Public/bugs-per-dist.json</a> </div>
+<div><pre>[
+   …, {
+      "dist" : "Moose",
+      "counts" : {
+         "rejected" : 36,
+         "inactive" : 179,
+         "resolved" : 143,
+         "active" : 48,
+         "deleted" : 85,
+         "patched" : 0,
+         "open" : 32,
+         "stalled" : 5,
+         "new" : 11
+      }
+   }, …
+]</pre></div>
 
 <div> Analyze your bugs <a href="https://rt.cpan.org/NoAuth/cpan/rtcpan.sqlite">rt.cpan.org/NoAuth/cpan/rtcpan.sqlite</a></div>
 <div><pre>sqlite&gt; .s
@@ -212,4 +318,5 @@ CREATE TABLE ticket (
 <!-- TODO: include "broken in/fixed in" in export? how to do multi-value? -->
 
 <div> <em>TSIBLEY</em>@cpan.org <br> @<em>trs</em> </div>
+<div> Questions? </div>
 <div> </div>
