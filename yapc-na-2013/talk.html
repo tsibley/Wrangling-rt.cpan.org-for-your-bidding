@@ -78,7 +78,7 @@ window.onload = function() {
         }
         else {
             var show = n > (s.length - 1) ? 0 : n;
-            if (p.location.hash === show)
+            if (p.location.hash === "#" + show)
                 p.location.reload();
             else
                 p.location.hash = show;
