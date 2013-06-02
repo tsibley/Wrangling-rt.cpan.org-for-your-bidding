@@ -158,10 +158,10 @@ window.onload = function() {
 TODO:
 
 * Check all screenshot sizes at 1024x768
+* More screenshots? (grep TODO)
 * Smooth all transitions
 * Figure out a demo hitlist
 * Run through at least once more!
-* More screenshots?
 
 -->
 
@@ -266,11 +266,39 @@ TODO:
 <div> <!-- TODO: screenshot of ticket creation + reply --> </div>
 <div> Bitcard + OpenID </div>
 <div> <!-- TODO: screenshot of public ticket creation + reply --> </div>
+<!-- TODO: screenshots on each priv ticket page + actions menu -->
 
 <!-- Command-line (bin/rt)  -->
 <div> Command line </div>
 <div><pre>cpanm RT::Client::CLI</pre></div>
 <div><pre>rt help</pre></div>
+<div><pre>rt create -t ticket</pre></div>
+<div><pre># Required: id, Queue
+
+id: ticket/new
+Queue: <em>App-cpangrep</em>
+Subject: <em>Faster timeout on requests</em>
+Requestor: TSIBLEY
+Cc:
+Status: new
+Text: <em>The backend is sometimes quite slow.
+  A shorter timeout would be nice.
+  
+  Perhaps even automatic retries on a timeout.</em>
+ENDOFCONTENT</pre></div>
+<div><pre># Required: id, Queue
+
+id: ticket/new
+Queue: App-cpangrep</em>
+Subject: Faster timeout on requests</em>
+Requestor: TSIBLEY
+Cc:
+Status: new
+Text: The backend is sometimes quite slow.
+<em>··</em>A shorter timeout would be nice.
+<em>··</em>
+<em>··</em>Perhaps even automatic retries on a timeout.
+ENDOFCONTENT</pre></div>
 <div><pre>rt ls -q Moose</pre></div>
 <div><pre>rt ls "Queue='Moose' and Status='new'"</pre></div>
 <div><pre>rt correspond 12345 \
@@ -279,6 +307,17 @@ TODO:
 <div><pre>rt resolve 12345</pre></div>
 <div><pre>rt delete 12345</pre></div>
 <div><pre>rt edit 12345 set status=patched</pre></div>
+<div><pre>rt edit 74144</pre></div>
+<div><pre>id: ticket/74144
+Queue: RT-Extension-LDAPImport
+Owner: Nobody
+Subject: LDAP values should be decoded as UTF-8 upon fetch
+Status: open
+Requestors: BHEISIG@cpan.org
+Cc:
+CF.{Severity}: Important
+CF.{Broken in}: 0.31
+CF.{Fixed in}:</pre></div>
 <div> Powerful aliases </div>
 <div> Great for scripting </div>
 <div> Automatically delete tickets in your Spam folder </div>
