@@ -51,9 +51,18 @@ div.TODO {
     display: block;
     position: absolute;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     letter-spacing: 0;
     font-size: 1em;
+}
+
+#pip {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 338px;
+    height: 260px;
 }
 </style><script type='text/javascript'>
 window.onload = function() {
@@ -67,8 +76,32 @@ window.onload = function() {
             if (p != null)
                 setTimeout(preview, 50, n); // Workaround for Chrome timing bug
         }
-        else
-            p.location.hash = n > (s.length - 1) ? 0 : n;
+        else {
+            var show = n > (s.length - 1) ? 0 : n;
+            if (p.location.hash === show)
+                p.location.reload();
+            else
+                p.location.hash = show;
+        }
+    }
+    function where(n) {
+        var where = document.getElementById("where") || document.createElement("span");
+        if (where.id !== "where") {
+            where.id = "where";
+            document.body.appendChild(where);
+        }
+        where.innerText = (n + 1) + " of " + s.length;
+    }
+    function pip(n) {
+        var pip = document.getElementById("pip") || document.createElement("iframe");
+        if (pip.id !== "pip") {
+            pip.id = "pip";
+            document.body.appendChild(pip);
+        }
+        var src = document.location.href;
+            src = src.replace(/\.html(\?nopreview)?/, '.html?nopreview');
+            src = src.replace(/(#\d+|$)/, '#' + n);
+        pip.src = src;
     }
     function go(n) {
         cur = n;
@@ -94,15 +127,11 @@ window.onload = function() {
         document.title = e.textContent || e.innerText;
 
         if (window.name === "preview") {
-            var where = document.getElementById("where") || document.createElement("span");
-            if (where.id !== "where") {
-                where.id = "where";
-                document.body.appendChild(where);
-            }
-            where.innerText = (n + 1) + "/" + s.length;
+            where(n);
+            pip(n + 1);
         }
         else
-            preview(n + 1);
+            preview(n);
     }
     document.onclick = function(e) {
         if (e.target.nodeName !== 'A') go(++cur % (s.length));
