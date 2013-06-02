@@ -43,10 +43,6 @@ div {
   white-space: pre-line;
 }
 
-div.TODO {
-  color: red;
-}
-
 #where {
     display: block;
     position: absolute;
@@ -158,59 +154,80 @@ window.onload = function() {
 };
 </script></head><body>
 
+<!--
+TODO:
+
+* Check all screenshot sizes at 1024x768
+* Smooth all transitions
+* Figure out a demo hitlist
+* Run through at least once more!
+* More screenshots?
+
+-->
+
 <div> Wrangling rt.cpan.org for your bidding </div>
 
 <div> I’m <em>TSIBLEY</em>@cpan.org and <em>trs</em> on IRC</div>
-
-<div> rt.cpan.org </div>
-<div> rt.perl.org </div>
+<div> Best Practical Solutions </div>
 <div> Request Tracker </div>
 <div><img src='images/at-a-glance.png'></div>
-<div> Best Practical Solutions </div>
-<div> I work for BPS </div>
+<div> Primarily RT development </div>
 <div> We maintain rt.cpan.org </div>
+<div> On perl.org infrastructure </div>
+
+<div> In a nutshell </div>
+<div> Vanilla RT </div>
+<div> + a suite of customizations </div>
+<div> = bugtracking for all of CPAN </div>
+<div> <u>CPAN Distribution</u> → <u>RT Queue</u> </div>
 
 <!-- Quick stats -->
 <div><u>31,200 queues</u> <br> <u>10,600 w/ bugs</u></div>
 <div><u>22,400 active bugs</u> <br> <u>38,700 inactive bugs</u></div>
 
-<div> <u>Distribution → Queue</u> </div>
+<div> What is a distribution? </div>
+<div> <u>TSIBLEY/App-cpanchanges-20130523.0.tar.gz</u> </div>
+<div> <u><em>TSIBLEY</em>/App-cpanchanges-20130523.0.tar.gz</u> </div>
+<div> <u>TSIBLEY/<em>App-cpanchanges</em>-20130523.0.tar.gz</u> </div>
+<div> <u>TSIBLEY/App-cpanchanges-<em>20130523.0</em>.tar.gz</u> </div>
+<div> <u>TSIBLEY/<em>App-cpanchanges</em>-20130523.0.tar.gz</u> </div>
+<div> <u>One name,</u> <u>one queue</u> </div>
+<div> PAUSE lacks concept </div>
+<div> For now! </div>
 
 <div> What is a queue? </div>
 <div> Basic organizational unit </div>
 <div> Access control </div>
+<div> People <br> <u>(CPAN authors)</u> </div>
 <div> <u>Available field values</u> <br> <u>(Fixed in, Broken In)</u> </div>
-<div> People <br> (CPAN authors) </div>
 
-<div> What is a distribution? </div>
-<div> <u>TSIBLEY/App-cpanchanges-20130523.0.tar.gz</u> </div>
-<div> <u>TSIBLEY/<em>App-cpanchanges</em>-20130523.0.tar.gz</u> </div>
-<div> According to rt.cpan.org </div>
-<div> PAUSE lacks concept </div>
-<div> (For now!  Talk to RJBS or DAGOLDEN) </div>
+<div> RT syncs from PAUSE/CPAN </div>
 <div> ~2 hour lag </div>
+<div> Distributions, versions, authors, maintainers </div>
 
-<!-- Submitting bugs -->
-<div> <u>bug-MetaCPAN-API@rt.cpan.org</u> </div>
-<div> <u>bug-<em>MetaCPAN-API</em>@rt.cpan.org</u> </div>
-<div> <u>bug-<em>libwww-perl</em>@rt.cpan.org</u> </div>
-<div> <u>[rt.cpan.org #NNNNN]</u> </div>
-<div> <u>[rt.cpan.org #<em>NNNNN</em>]</u> </div>
-<div> https://rt.cpan.org </div>
+<div> Maintainers </div>
+<div> You! </div>
+<div><img src='images/maintainers.png'></div>
+<div> Primary + Co-maints </div>
+<div> Own, resolve, delete tickets, modify queue options </div>
+<div> Your own garden </div>
+<div> <u>Well tended</u> vs. <u>Left to the weeds</u> </div>
 
+<!-- Bug management -->
+<div> Managing your bugs </div>
 <div> PAUSE authors </div>
 <div><img src='images/pause.png'></div>
 <div> Public access, <br> Bitcard, &amp; <br> OpenID </div>
 <div><img src='images/public.png'></div>
 <div><img src='images/pause-ticket.png'></div>
 <div><img src='images/public-ticket.png'></div>
+<div> As much or as little metadata as you like </diV>
+<div> Notable metadata </div>
 
-<div> Maintainers </div>
-<div> Primary maint + Co-maints </div>
-<div><img src='images/maintainers.png'></div>
-<div> you! </div>
-<div> Own, resolve, delete tickets, modify queue options </div>
-<div> AdminCcs =&nbsp;Maintainers </div>
+<div> Status </div>
+<div> Severity </div>
+<div> Broken&nbsp;in </div>
+<div> Fixed&nbsp;in </div>
 
 <!-- Adding people (or yourself) as Ccs, Requestors -->
 <div> Ticket people </div>
@@ -220,8 +237,8 @@ window.onload = function() {
 <div> AdminCcs </div>
 <div> Maints can add anyone </div>
 <div> Add yourself as Requestor, Cc to any bug </div>
-<div> Follow progress </div>
 <div> (Use address of your current user) </div>
+<div> Requestor vs. Cc is ~nil </div>
 
 <!-- Linking between tickets -->
 <div> Links between tickets </div>
@@ -231,101 +248,30 @@ window.onload = function() {
 <div> Dependencies are enforced </div>
 <div> Ticket numbers </div>
 <div> perl:NNNN →&nbsp;rt.perl.org </div>
-<div> http:// https:// </div>
+<div> http:// <br> https:// </div>
 <div> Fully searchable </div>
 
-<!-- Searching and saved searches -->
-<div> Searching </div>
+<!-- Submitting bugs -->
+<div> Many ways to work with bugs </div>
+<div> Email </div>
+<div> <u>bug-MetaCPAN-API@rt.cpan.org</u> </div>
+<div> <u>bug-<em>MetaCPAN-API</em>@rt.cpan.org</u> </div>
+<div> <u>bug-<em>libwww-perl</em>@rt.cpan.org</u> </div>
+<div> Existing bug </div>
+<div> <u>[rt.cpan.org #NNNNN]</u> </div>
+<div> <u>[rt.cpan.org #<em>NNNNN</em>]</u> </div>
 
-<!-- Powerful simple searches -->
-<div> “Simple” search </div>
-<div><img src="images/simplesearch.png"></div>
-<div> Ever present </div>
-<div> Terse, powerful </div>
-<div> Saves you time </div>
-<div> Jumping off point </div>
-<div><img src="images/simplesearch-howto.png"></div>
-<div> <u>Ticket #</u> </div>
-<div> Dist name → bug list </div>
-<div> PAUSE id → dist list </div>
-<div> Examples! </div>
-<div><pre>12345
-#12345</pre></div>
-<div><pre>Moose
-q:Moose
-queue:Moose
-"Moose"</pre></div>
-<div><pre>Moose any
-Moose resolved
-Moose method</pre></div>
-<div><pre>tsibley
-owner:tsibley
-tsibley@cpan.org</pre></div>
-<div><pre>"hash randomisation"</pre></div>
-<div><pre>cf.severity:wishlist</pre></div>
-<div> Browser site search </div>
-<div><pre>https://rt.cpan.org/Search/Simple.html?q=%s</pre></div> 
-<div><img src="images/browsersearch.png"></div>
+<div> Web </div>
+<div> PAUSE authors </div>
+<div> <!-- TODO: screenshot of ticket creation + reply --> </div>
+<div> Bitcard + OpenID </div>
+<div> <!-- TODO: screenshot of public ticket creation + reply --> </div>
 
-<!-- Query builder -->
-<div> Query builder </div>
-<div><img src="images/querybuilder.png"></div>
-<div> Ordering and formatting </div>
-<div><img src="images/formatandsort.png"></div>
-<div> Builds TicketSQL </div>
-<div><img src="images/querybuilder.png"></div>
-
-<div> <a href="https://rt.cpan.org/Search/Build.html">demo</a> </div>
-
-<!-- TicketSQL -->
-<div> TicketSQL? </div>
-<div> SQL-like language </div>
-<div> A big WHERE clause </div>
-<div> Abstracts away joins </div>
-<div> Same basic operators </div>
-<div> Booleans and parentheticals </div>
-<div> “Advanced” </div>
-<div><pre>Created &gt; '1 hour ago'</pre></div>
-<div><pre>Watcher.id = '__CurrentUser__'</pre></div>
-<div><pre>QueueAdminCc.id = '__CurrentUser__'</pre></div>
-<div><pre>'CF.{Fixed in}' &gt;= '2.00'</pre></div>
-<div> Indexed FTS to come </div>
-
-<!-- Formats -->
-<div> Formats </div>
-
-<!-- Saved searches -->
-<div> Saved searches </div>
-<div> Query, Order, Format </div>
-<div> Save/Load via Query builder </div>
-
-<!-- Charting -->
-<div> Charting </div>
-<div> GROUP BY </div>
-<div> Any search </div>
-<div> Save/Load </div>
-<div> Let's chart ‘"hash randomisation" any’ by Status </div>
-
-<!-- Dashboards & Modifying the home page -->
-<div> Your RT homepage </div>
-<div> “RT at a glance” </div>
-<div> Modify portlets </div>
-<div> Saved searches </div>
-<div> Saved charts </div>
-
-<div> Dashboards </div>
-<div> Infinite homepages! </div>
-<div> Subscribe via email </div>
-
-<!-- Feeds -->
-<div> RSS feeds </div>
-
-<!-- TODO: open a bunch of tabs for demos between slides? -->
-
-<!-- Command-line access (bin/rt)  -->
-<div> Command line access </div>
+<!-- Command-line (bin/rt)  -->
+<div> Command line </div>
 <div><pre>cpanm RT::Client::CLI</pre></div>
 <div><pre>rt help</pre></div>
+<div><pre>rt ls -q Moose</pre></div>
 <div><pre>rt ls "Queue='Moose' and Status='new'"</pre></div>
 <div><pre>rt correspond 12345 \
   -m 'Patch attached' \
@@ -368,7 +314,7 @@ perldoc RT::Client::REST</pre></div>
 <div> PAUSE only </div>
 
 <!-- The "Manage" tab -->
-<div> “Manage” </div>
+<div> Queue management </div>
 <div><img src="images/manage.png"></div>
 
 <div> Notify additional addresses </div>
@@ -382,7 +328,8 @@ perldoc RT::Client::REST</pre></div>
 <div> Be reasonable </div>
 
 <div> Distribution notes </div>
-<div> Bug lists &amp; Report a bug </div>
+<div> “Heads up” for reporters </div>
+<div> On bug lists &amp; bug create pages </div>
 <div><img src="images/distronotes.png"></div>
 <div><img src="images/longnotes.png"></div>
 <div><img src="images/pleasebeeating.png"></div>
@@ -444,14 +391,137 @@ bugtracker.mailto = …</pre></div>
 <div> Past bug history </div>
 <div> “Someone else has this problem, I'm not crazy.” </div>
 
+<!-- TODO: better transition here.  "The past is the key to the present"? -->
+
+<!-- Searching and saved searches -->
+<div> Searching </div>
+
+<!-- Powerful simple searches -->
+<div> “Simple” search </div>
+<div><img src="images/simplesearch.png"></div>
+<div> Ever present </div>
+<div> Terse, powerful </div>
+<div> Saves you time </div>
+<div> Jumping off point </div>
+<div><img src="images/simplesearch-howto.png"></div>
+<div> Examples! </div>
+<div> <u>Ticket #</u> </div>
+<div><pre>12345
+#12345</pre></div>
+<div> Specific to rt.cpan.org </div>
+<div> Dist name <u>→ bug list</u> </div>
+<div><pre>Moose
+App-cpanchanges
+libwww-perl</pre></div>
+<div> PAUSE id <u>→ dist list</u> </div>
+<div><pre>tsibley
+MIYAGAWA
+RJBS</pre></div>
+<div><pre>Moose any
+Moose resolved
+q:Moose
+
+Moose method
+"Moose"</pre></div>
+<div><pre>owner:tsibley
+tsibley@cpan.org
+requestor:tsibley
+tsibley@cpan.org trs@bestpractical.com</pre></div>
+<div><pre>"hash randomisation"
+"hash randomisation" any
+"hash randomization" tsibley@cpan.org any</pre></div>
+<div><pre>cf.severity:wishlist</pre></div>
+<div> Browser site search </div>
+<div> Chrome: Edit search engines… </div>
+<div> Firefox: Keyword bookmarks </div>
+<div><pre>https://rt.cpan.org/Search/Simple.html?q=%s</pre></div> 
+<div><img src="images/browsersearch.png"></div>
+
+<!-- Query builder -->
+<div> Query builder </div>
+<div><img src="images/querybuilder.png"></div>
+<div> Ordering and formatting </div>
+<div><img src="images/formatandsort.png"></div>
+<div> Builds TicketSQL </div>
+<div><img src="images/querybuilder.png"></div>
+
+<!-- TicketSQL -->
+<div> TicketSQL? </div>
+<div> SQL-like language </div>
+<div> A big WHERE clause </div>
+<div> Abstracts away joins </div>
+<div> Same basic operators </div>
+<div> Booleans and parentheticals </div>
+<div> “Advanced” </div>
+<div><pre>Created &gt; '1 hour ago'
+LastUpdated = 'today'</pre></div>
+<div><pre>Subject LIKE '5.17'
+    OR Subject LIKE '5.18'
+Requestor.EmailAddress ENDSWITH '@bestpractical.com'
+Requestor.EmailAddress STARTSWITH 'tsibley@'</pre></div>
+<div><pre>QueueAdminCc.EmailAddress = 'tsibley@cpan.org'
+QueueAdminCc.id = '__CurrentUser__'</pre></div>
+<div><pre>'CF.{Fixed in}' &gt;= '2.00'</pre></div>
+<div> Arbitrary condition complexity </div>
+<div><pre>    QueueAdminCc.id != '__CurrentUser__'
+AND (   Watcher.EmailAddress = 'tsibley@cpan.org'
+     OR Watcher.EmailAddress = 'trs@bestpractical.com'
+     OR Watcher.EmailAddress ENDSWITH '@zulutango.org')
+AND (   Status = 'open'
+     OR Status = 'new'
+     OR Status = 'stalled'
+     OR Status = 'patched')</pre></div>
+<div> Content searches possible… </div>
+<div> … not enabled </div>
+<div> Indexed FTS to come! </div>
+
+<!-- TODO: figure out quick hitlist for demo, based on below -->
+<div> searching demo! </div>
+
+<!-- Formats -->
+<div> Formats </div>
+
+<!-- Saved searches -->
+<div> Saved searches </div>
+<div> Query, Order, Format </div>
+<div> Save/Load via Query builder </div>
+
+<!-- Charting -->
+<div> Charting </div>
+<div> GROUP BY </div>
+<div> Any search </div>
+<div> Save/Load </div>
+<div> Let's chart ‘"hash randomisation" any’ by Status </div>
+
+<!-- Dashboards & Modifying the home page -->
+<div> Your RT homepage </div>
+<div> “RT at a glance” </div>
+<div> Modify portlets </div>
+<div> Saved searches </div>
+<div> Saved charts </div>
+
+<div> Dashboards </div>
+<div> Infinite homepages! </div>
+<div> Subscribe via email </div>
+
+<!-- Feeds -->
+<div> RSS feeds </div>
+
 <!-- Integration with Github/webhooks (if complete in time for YAPC!)  -->
 <!-- Other topics that may arise between now and YAPC or in a Q&amp;A session at the end. -->
 <!-- how to participate? -->
 <!-- making internal queue visible -->
 <!-- actions by email: $UnsafeEmailActions = 1 and correspond-resolve addresses -->
 <!-- adjust default home page? -->
+<!-- "Bugs I reported" on homepage for bitcard/openid users -->
 
 <!-- Regular exports -->
+<div> rt.cpan.org’s data </div>
+<div> Analyze it? </div>
+<div> Use it in scoring system? </div>
+<div> Show it on a CPAN browser? </div>
+<div> Dig through history? </div>
+
 <div> Exported data </div>
 <div> Bug counts by status </div>
 <div> TSV <a href="https://rt.cpan.org/Public/bugs-per-dist.tsv">rt.cpan.org/Public/bugs-per-dist.tsv</a> </div>
@@ -498,6 +568,9 @@ CREATE TABLE ticket (
 );</pre></div>
 <!-- TODO: include "broken in/fixed in" in export? how to do multi-value? -->
 
-<div> RT help <br> #rt on irc.perl.org </div>
-<div> rt-cpan-admin@bestpractical.com </div>
+<div> Need more? Just ask! </div>
+
+<div> RT help <br> <em>#rt</em> on irc.perl.org </div>
+<div> Problems to <u><em>rt-cpan-admin@bestpractical.com</em></u> </div>
+<div> Or catch me in the hallway </div>
 <div> Questions? </div>
