@@ -2,7 +2,7 @@
 body {
   font-family: 'Helvetica Neue', 'Helvetica';
   letter-spacing:-5px;
-  background:#000;
+  background:#000 no-repeat;
   background-size:100%;
   color:#fff;
   margin:0;
@@ -104,8 +104,8 @@ window.onload = function() {
         else
             preview(n + 1);
     }
-    document.onclick = function() {
-        go(++cur % (s.length));
+    document.onclick = function(e) {
+        if (e.target.nodeName !== 'A') go(++cur % (s.length));
     };
     document.onkeydown = function(e) {
         (e.which === 39) && go(Math.min(s.length - 1, ++cur));
@@ -124,20 +124,25 @@ window.onload = function() {
         var c = parse_hash();
         if (c !== cur) go(c);
     };
-
     go(cur);
 };
 </script></head><body>
 
-<div> RT for CPAN </div>
+<div> Wrangling rt.cpan.org for your bidding </div>
+
+<div> I'm <em>TSIBLEY</em>@cpan.org and <em>trs</em> on IRC</div>
+
 <div> rt.cpan.org </div>
-<div> RT for Perl <br> rt.perl.org </div>
+<div> rt.perl.org </div>
 <div> Request Tracker </div>
 <div><img src='images/at-a-glance.png'></div>
+<div> Best Practical Solutions </div>
+<div> I work for BPS </div>
+<div> We maintain rt.cpan.org </div>
 
 <!-- Quick stats -->
-<div>31,200 queues <br> 10,600 w/ bugs </div>
-<div><u>22,400 active bugs</u><br> <u>38,700 inactive bugs</u></div>
+<div><u>31,200 queues</u> <br> <u>10,600 w/ bugs</u></div>
+<div><u>22,400 active bugs</u> <br> <u>38,700 inactive bugs</u></div>
 
 <div> <u>Distribution → Queue</u> </div>
 
@@ -155,45 +160,182 @@ window.onload = function() {
 <div> (For now!  Talk to RJBS or DAGOLDEN) </div>
 <div> ~2 hour lag </div>
 
-<!-- TODO: open a bunch of tabs for demos between slides? -->
-
 <!-- Submitting bugs -->
-<div> <u>bug-YAPC-NA@rt.cpan.org</u> </div>
-<div> <u>bug-<em>YAPC-NA</em>@rt.cpan.org</u> </div>
+<div> <u>bug-MetaCPAN-API@rt.cpan.org</u> </div>
+<div> <u>bug-<em>MetaCPAN-API</em>@rt.cpan.org</u> </div>
+<div> <u>bug-<em>libwww-perl</em>@rt.cpan.org</u> </div>
 <div> <u>[rt.cpan.org #NNNNN]</u> </div>
 <div> <u>[rt.cpan.org #<em>NNNNN</em>]</u> </div>
 <div> https://rt.cpan.org </div>
 
 <div> PAUSE authors </div>
 <div><img src='images/pause.png'></div>
-<!-- TODO: more screenshots of each here -->
 <div> Public access, <br> Bitcard, &amp; <br> OpenID </div>
 <div><img src='images/public.png'></div>
+<div><img src='images/pause-ticket.png'></div>
+<div><img src='images/public-ticket.png'></div>
 
 <div> Maintainers </div>
 <div> Primary maint + Co-maints </div>
 <div><img src='images/maintainers.png'></div>
 <div> you! </div>
 <div> Own, resolve, delete tickets, modify queue options </div>
-<div> AdminCcs = Maintainers </div>
+<div> AdminCcs =&nbsp;Maintainers </div>
+
+<!-- Adding people (or yourself) as Ccs, Requestors -->
+<div> Ticket people </div>
+<div> Owner </div>
+<div> Requestors </div>
+<div> Ccs </div>
+<div> AdminCcs </div>
+<div> Maints can add anyone </div>
+<div> Add yourself as Requestor, Cc to any bug </div>
+<div> Follow progress </div>
+<div> (Use address of your current user) </div>
 
 <!-- Linking between tickets -->
 <div> Links between tickets </div>
-<div> Depends On     <br> Refers To      <br> Child </div>
-<div> Depended On By <br> Referred To By <br> Parent </div>
-<!-- <div> <u>Parent / Child</u> <br> <u>MemberOf / Member</u> </div> -->
-
-<!-- Adding people (or yourself) as Ccs, Requestors -->
+<div> <u>Depends On</u>     <br> <u>Refers To</u>      <br> Child </div>
+<div> <u>Depended On By</u> <br> <u>Referred To By</u> <br> Parent </div>
+<div> <u>Parent / Child</u> <br> <u>MemberOf / Member</u> </div>
+<div> Dependencies are enforced </div>
+<div> Ticket numbers </div>
+<div> perl:NNNN →&nbsp;rt.perl.org </div>
+<div> http:// https:// </div>
+<div> Fully searchable </div>
 
 <!-- Searching and saved searches -->
+<div> Searching </div>
+
 <!-- Powerful simple searches -->
-<!-- Adding it to your browser -->
+<div> “Simple” search </div>
+<div><img src="images/simplesearch.png"></div>
+<div> Ever present </div>
+<div> Terse, powerful </div>
+<div> Saves you time </div>
+<div> Jumping off point </div>
+<div><img src="images/simplesearch-howto.png"></div>
+<div> <u>Ticket #</u> </div>
+<div> Dist name → bug list </div>
+<div> PAUSE id → dist list </div>
+<div> Examples! </div>
+<div><pre>12345
+#12345</pre></div>
+<div><pre>Moose
+q:Moose
+queue:Moose
+"Moose"</pre></div>
+<div><pre>Moose any
+Moose resolved
+Moose method</pre></div>
+<div><pre>tsibley
+owner:tsibley
+tsibley@cpan.org</pre></div>
+<div><pre>"hash randomisation"</pre></div>
+<div><pre>cf.severity:wishlist</pre></div>
+<div> Browser site search </div>
+<div><pre>https://rt.cpan.org/Search/Simple.html?q=%s</pre></div> 
+<div><img src="images/browsersearch.png"></div>
+
+<!-- Query builder -->
+<div> Query builder </div>
+<div><img src="images/querybuilder.png"></div>
+<div> Ordering and formatting </div>
+<div><img src="images/formatandsort.png"></div>
+<div> Builds TicketSQL </div>
+<div><img src="images/querybuilder.png"></div>
+
+<div> <a href="https://rt.cpan.org/Search/Build.html">demo</a> </div>
+
+<!-- TicketSQL -->
+<div> TicketSQL? </div>
+<div> SQL-like language </div>
+<div> A big WHERE clause </div>
+<div> Abstracts away joins </div>
+<div> Same basic operators </div>
+<div> Booleans and parentheticals </div>
+<div> “Advanced” </div>
+<div><pre>Created &gt; '1 hour ago'</pre></div>
+<div><pre>Watcher.id = '__CurrentUser__'</pre></div>
+<div><pre>QueueAdminCc.id = '__CurrentUser__'</pre></div>
+<div><pre>'CF.{Fixed in}' &gt;= '2.00'</pre></div>
+<div> Indexed FTS to come </div>
+
 <!-- Formats -->
-<!-- Ordering -->
-<!-- Dashboards  -->
-<!-- Notifications and feeds  -->
+<div> Formats </div>
+
+<!-- Saved searches -->
+<div> Saved searches </div>
+<div> Query, Order, Format </div>
+<div> Save/Load via Query builder </div>
+
+<!-- Charting -->
+<div> Charting </div>
+<div> GROUP BY </div>
+<div> Any search </div>
+<div> Save/Load </div>
+<div> Let's chart ‘"hash randomisation" any’ by Status </div>
+
+<!-- Dashboards & Modifying the home page -->
+<div> Your RT homepage </div>
+<div> “RT at a glance” </div>
+<div> Modify portlets </div>
+<div> Saved searches </div>
+<div> Saved charts </div>
+
+<div> Dashboards </div>
+<div> Infinite homepages! </div>
+<div> Subscribe via email </div>
+
+<!-- Feeds -->
+<div> RSS feeds </div>
+
+<!-- TODO: open a bunch of tabs for demos between slides? -->
+
 <!-- Command-line access (bin/rt)  -->
+<div> Command line access </div>
+<div><pre>cpanm RT::Client::CLI</pre></div>
+<div><pre>rt help</pre></div>
+<div><pre>rt ls "Queue='Moose' and Status='new'"</pre></div>
+<div><pre>rt correspond 12345 \
+  -m 'Patch attached' \
+  -a 0001-Frobble-the-whatzits.patch</pre></div>
+<div><pre>rt resolve 12345</pre></div>
+<div><pre>rt delete 12345</pre></div>
+<div><pre>rt edit 12345 set status=patched</pre></div>
+<div> Powerful aliases </div>
+<div> Great for scripting </div>
+<div> Automatically delete tickets in your Spam folder </div>
+<div> Easy multiple RT support </div>
+<div><pre>$ ls -1 ~/bin/*-rt
+~/bin/<em>invoke-rt</em>
+~/bin/bps-rt@
+~/bin/cpan-rt@
+~/bin/issues-rt@
+~/bin/local-rt@
+~/bin/perl-rt@</pre></div>
+<div><pre>$ ls -1 ~/.rtrc-*
+~/.rtrc@
+~/.rtrc-bps
+~/.rtrc-cpan
+~/.rtrc-issues
+~/.rtrc-local
+~/.rtrc-perl</pre></div>
+<div><pre>#!/bin/bash
+# invoke-rt
+config=~/.rtrc-`basename ${0%-rt}`
+exec env RTCONFIG="$config" rt "$@"</pre></div>
+
 <!-- REST API access -->
+<div> Web API </div>
+<div><pre>rt.cpan.org/REST/1.0/…</pre></div>
+<div> “REST” </div>
+<div> Not really REST </div>
+<div> Used by the CLI </div>
+<div> RTDEBUG=3 to trace </div>
+<div><pre>cpanm RT::Client::REST
+perldoc RT::Client::REST</pre></div>
+<div> PAUSE only </div>
 
 <!-- The "Manage" tab -->
 <div> “Manage” </div>
@@ -206,7 +348,6 @@ window.onload = function() {
 
 <div> Custom subject tag </div>
 <div> <u>[rt.cpan.org #12345]</u> </div>
-<div> turns into </div>
 <div> <u>[rt.cpan.org <em>Moose</em> #12345]</u> </div>
 <div> Be reasonable </div>
 
@@ -224,6 +365,15 @@ window.onload = function() {
 <div> (CPAN::Meta::Spec) </div>
 <div> ExtUtils::MakeMaker </div>
 <div><pre>META_MERGE =&gt; {
+
+    resources   =&gt; {
+        bugtracker =&gt; "…",
+
+
+
+    },
+}</pre></div>
+<div><pre>META_MERGE =&gt; {
     "meta-spec" =&gt; { version =&gt; 2 },
     resources   =&gt; {
         bugtracker =&gt; {
@@ -232,6 +382,12 @@ window.onload = function() {
         },
     },
 }</pre></div>
+<div> Module::Build </div>
+<div><pre>meta_merge =&gt; {
+    resources =&gt; {
+        bugtracker =&gt; "…",
+    },
+},</pre></div>
 <div> Module::Build::Functions </div>
 <div><pre>bugtracker "…";</pre></div>
 <div> Module::Install </div>
@@ -261,19 +417,13 @@ bugtracker.mailto = …</pre></div>
 <!-- Integration with Github/webhooks (if complete in time for YAPC!)  -->
 <!-- Other topics that may arise between now and YAPC or in a Q&amp;A session at the end. -->
 <!-- how to participate? -->
-<!-- curl incant for bin/rt (or separate dist?) -->
-<div><pre>cpanm RT::Client::CLI</pre></div>
 <!-- making internal queue visible -->
 <!-- actions by email: $UnsafeEmailActions = 1 and correspond-resolve addresses -->
-
-<!--
-* adjust default home page
-    notify those who've customized that there's a new version available?
-    (see if they've actually customized, or just reset to default at a point in time?)
--->
+<!-- adjust default home page? -->
 
 <!-- Regular exports -->
-<div> Bug summary data </div>
+<div> Exported data </div>
+<div> Bug counts by status </div>
 <div> TSV <a href="https://rt.cpan.org/Public/bugs-per-dist.tsv">rt.cpan.org/Public/bugs-per-dist.tsv</a> </div>
 <div><em>distribution name</em>
 new
@@ -304,7 +454,8 @@ rejected
    }, …
 ]</pre></div>
 
-<div> Analyze your bugs <a href="https://rt.cpan.org/NoAuth/cpan/rtcpan.sqlite">rt.cpan.org/NoAuth/cpan/rtcpan.sqlite</a></div>
+<div> Bug summaries </div>
+<div> <a href="https://rt.cpan.org/NoAuth/cpan/rtcpan.sqlite">rt.cpan.org/NoAuth/cpan/rtcpan.sqlite</a></div>
 <div><pre>sqlite&gt; .s
 CREATE TABLE ticket (
     id INTEGER NOT NULL PRIMARY KEY,
@@ -317,6 +468,6 @@ CREATE TABLE ticket (
 );</pre></div>
 <!-- TODO: include "broken in/fixed in" in export? how to do multi-value? -->
 
-<div> <em>TSIBLEY</em>@cpan.org <br> @<em>trs</em> </div>
+<div> RT help <br> #rt on irc.perl.org </div>
+<div> rt-cpan-admin@bestpractical.com </div>
 <div> Questions? </div>
-<div> </div>
