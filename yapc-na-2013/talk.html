@@ -157,11 +157,8 @@ window.onload = function() {
 <!--
 TODO:
 
-* Check all screenshot sizes at 1024x768
-* More screenshots? (grep TODO)
-* Smooth all transitions
+* Notable changes in upgrade!
 * Figure out a demo hitlist
-* Run through at least once more!
 
 -->
 
@@ -174,6 +171,8 @@ TODO:
 <div> Primarily RT development </div>
 <div> We maintain rt.cpan.org </div>
 <div> On perl.org infrastructure </div>
+
+<!-- TODO: UPGRADE NOTES -->
 
 <div> In a nutshell </div>
 <div> Vanilla RT </div>
@@ -194,6 +193,7 @@ TODO:
 <div> <u>One name,</u> <u>one queue</u> </div>
 <div> PAUSE lacks concept </div>
 <div> For now! </div>
+<div> <em>RJBS</em> &amp; <em>DAGOLDEN</em> are on it </div>
 
 <div> What is a queue? </div>
 <div> Basic organizational unit </div>
@@ -211,7 +211,7 @@ TODO:
 <div> Primary + Co-maints </div>
 <div> Own, resolve, delete tickets, modify queue options </div>
 <div> Your own garden </div>
-<div> <u>Well tended</u> vs. <u>Left to the weeds</u> </div>
+<div> <u>Well tended</u> <i>vs.</i> <u>Left to the weeds</u> </div>
 
 <!-- Bug management -->
 <div> Managing your bugs </div>
@@ -236,7 +236,7 @@ TODO:
 <div> Ccs </div>
 <div> AdminCcs </div>
 <div> Maints can add anyone </div>
-<div> Add yourself as Requestor, Cc to any bug </div>
+<div> Add yourself as <em>Requestor</em> or <em>Cc</em> </div>
 <div> (Use address of your current user) </div>
 <div> Requestor vs. Cc is ~nil </div>
 
@@ -251,22 +251,22 @@ TODO:
 <div> http:// <br> https:// </div>
 <div> Fully searchable </div>
 
-<!-- Submitting bugs -->
-<div> Many ways to work with bugs </div>
+<!-- Working with bugs -->
+<div> Working with bugs </div>
 <div> Email </div>
 <div> <u>bug-MetaCPAN-API@rt.cpan.org</u> </div>
 <div> <u>bug-<em>MetaCPAN-API</em>@rt.cpan.org</u> </div>
 <div> <u>bug-<em>libwww-perl</em>@rt.cpan.org</u> </div>
-<div> Existing bug </div>
+<div> Existing bug? </div>
 <div> <u>[rt.cpan.org #NNNNN]</u> </div>
 <div> <u>[rt.cpan.org #<em>NNNNN</em>]</u> </div>
 
 <div> Web </div>
-<div> PAUSE authors </div>
-<div> <!-- TODO: screenshot of ticket creation + reply --> </div>
 <div> Bitcard + OpenID </div>
-<div> <!-- TODO: screenshot of public ticket creation + reply --> </div>
-<!-- TODO: screenshots on each priv ticket page + actions menu -->
+<div><img src="images/publicreport.png"></div>
+<div> PAUSE authors </div>
+<div><img src="images/pausereport.png"></div>
+<div><img src="images/ticketmenu.png"></div>
 
 <!-- Command-line (bin/rt)  -->
 <div> Command line </div>
@@ -301,6 +301,7 @@ Text: The backend is sometimes quite slow.
 ENDOFCONTENT</pre></div>
 <div><pre>rt ls -q Moose</pre></div>
 <div><pre>rt ls "Queue='Moose' and Status='new'"</pre></div>
+<div><pre>rt correspond 12345</pre></div>
 <div><pre>rt correspond 12345 \
   -m 'Patch attached' \
   -a 0001-Frobble-the-whatzits.patch</pre></div>
@@ -320,7 +321,7 @@ CF.{Broken in}: 0.31
 CF.{Fixed in}:</pre></div>
 <div> Powerful aliases </div>
 <div> Great for scripting </div>
-<div> Automatically delete tickets in your Spam folder </div>
+<div> Invoke it from your MUA </div>
 <div> Easy multiple RT support </div>
 <div><pre>$ ls -1 ~/bin/*-rt
 ~/bin/<em>invoke-rt</em>
@@ -417,8 +418,10 @@ bugtracker.mailto = …</pre></div>
 <div><img src='images/preferred-bugtracker.png'></div>
 <div><img src='images/preferred-bugtracker-ticket.png'></div>
 <div><img src='images/preferred-bugtracker-report.png'></div>
-<div> Thanks to <em>Ian Norton</em> &amp; <em>Shadowcat Systems</em> </div>
+<div> Thanks to <em>Ian Norton</em> &amp; <em>Shadowcat</em> </div>
+<div><img src='images/preferred-bugtracker.png'></div>
 <div> Queue still exists‽ </div>
+<div><img src='images/preferred-bugtracker-report.png'></div>
 <div> Yes. </div>
 <div> Advisory only </div>
 <div> rt.cpan.org is for </div>
@@ -428,7 +431,7 @@ bugtracker.mailto = …</pre></div>
 <div> Abandoned modules </div>
 <div> Community patches </div>
 <div> Past bug history </div>
-<div> “Someone else has this problem, I'm not crazy.” </div>
+<div> “Someone else has this problem, I’m not crazy.” </div>
 
 <!-- TODO: better transition here.  "The past is the key to the present"? -->
 
@@ -453,15 +456,18 @@ bugtracker.mailto = …</pre></div>
 App-cpanchanges
 libwww-perl</pre></div>
 <div> PAUSE id <u>→ dist list</u> </div>
-<div><pre>tsibley
+<div><pre>JESSE
 MIYAGAWA
 RJBS</pre></div>
 <div><pre>Moose any
 Moose resolved
 q:Moose
+queue:Moose
 
 Moose method
-"Moose"</pre></div>
+"Moose"
+
+cf.severity:wishlist</pre></div>
 <div><pre>owner:tsibley
 tsibley@cpan.org
 requestor:tsibley
@@ -469,7 +475,6 @@ tsibley@cpan.org trs@bestpractical.com</pre></div>
 <div><pre>"hash randomisation"
 "hash randomisation" any
 "hash randomization" tsibley@cpan.org any</pre></div>
-<div><pre>cf.severity:wishlist</pre></div>
 <div> Browser site search </div>
 <div> Chrome: Edit search engines… </div>
 <div> Firefox: Keyword bookmarks </div>
@@ -492,6 +497,7 @@ tsibley@cpan.org trs@bestpractical.com</pre></div>
 <div> Same basic operators </div>
 <div> Booleans and parentheticals </div>
 <div> “Advanced” </div>
+<div><img src="images/ticketsql.png"></div>
 <div><pre>Created &gt; '1 hour ago'
 LastUpdated = 'today'</pre></div>
 <div><pre>Subject LIKE '5.17'
@@ -612,4 +618,5 @@ CREATE TABLE ticket (
 <div> RT help <br> <em>#rt</em> on irc.perl.org </div>
 <div> Problems to <u><em>rt-cpan-admin@bestpractical.com</em></u> </div>
 <div> Or catch me in the hallway </div>
+<div> <u><a href="http://tsibley.net/talks/yapc-na-2013">tsibley.net/talks/yapc-na-2013</a></u> </div>
 <div> Questions? </div>
